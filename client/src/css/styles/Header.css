@@ -1,0 +1,179 @@
+/* Gradient background for the navbar */
+.bg-gradient {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+/* Logo styling */
+.navbar-brand.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+  background: linear-gradient(90deg, #000000, #000000);
+  border-radius: 6px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand.logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #0dcaf0, #05142e);
+}
+
+/* Nav link styling */
+.nav-link {
+  color: #000000 !important;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #0c0b07;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #1c8e92 !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: #000000 !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #ffdd57;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  background: linear-gradient(90deg, #0dcaf0, #2575fc);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-item {
+  color: #fff !important;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffdd57 !important;
+  transform: translateX(5px);
+}
+
+/* Badge styling */
+.ant-badge-count {
+  background-color: #ffdd57;
+  color: #6a11cb;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ant-badge-count:hover {
+  transform: scale(1.1);
+  background-color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin: 5px 0;
+    padding: 8px 0;
+  }
+
+  .dropdown-menu {
+    background: linear-gradient(90deg, #0dcaf0, #2575fc);
+    border-radius: 5px;
+    box-shadow: none;
+  }
+
+  .dropdown-item {
+    padding: 8px 15px;
+  }
+}
+
+/* Additional Enhancements */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon:hover {
+  background-color: #ffdd57;
+}
+
+/* Smooth transitions for dropdown */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect for the entire navbar */
+.navbar:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle animation for the badge */
+.ant-badge {
+  transition: transform 0.3s ease;
+}
+
+.ant-badge:hover {
+  transform: scale(1.1);
+}
+
+/* Gradient text for nav links */
+.nav-link.gradient-text {
+  background: linear-gradient(90deg, #ffdd57, #ff6b6b);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: background 0.3s ease;
+}
+
+.nav-link.gradient-text:hover {
+  background: linear-gradient(90deg, #ff6b6b, #ffdd57);
+  -webkit-background-clip: text;
+}

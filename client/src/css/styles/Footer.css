@@ -1,0 +1,28 @@
+.footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Add some padding */
+    text-align: center; /* Center align text */
+    border-top: 2px solid #444; /* Add a border on top */
+    margin-top: 40px; /* Add some space above the footer */
+  }
+  
+  .footer h1 {
+    font-size: 1.5rem; /* Adjust the font size */
+    margin-bottom: 10px; /* Add some space below the heading */
+  }
+  
+  .footer .links {
+    font-size: 1rem; /* Adjust the font size */
+  }
+  
+  .footer .links a {
+    color: #fff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Add some space between links */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .footer .links a:hover {
+    color: #ffcc00; /* Change color on hover */
+  }

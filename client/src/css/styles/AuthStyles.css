@@ -1,0 +1,104 @@
+/* ===================================
+========= register page  */
+.form-container {
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  flex-direction: column;
+  background-color: #af7dcc;
+  background-image: url(../../images/login-bg.jpg)  ;
+  animation: gradientAnimation 10s ease-in-out;
+  animation-fill-mode: forwards; 
+  
+
+  
+
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.form-container form {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  
+  backdrop-filter: blur(2px); /* Adds a subtle blur effect */
+  
+
+}
+
+.form-container form:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 40px, rgba(0, 0, 0, 0.25) 0px 15px 15px;
+
+  
+}
+
+.form-container form .title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-container form input {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: 0;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+
+.form-container form input:focus {
+  outline: none;
+  border-bottom: 2px solid #ffffff;
+}
+
+.form-container form button {
+  border: none;
+  border-radius: 25px;
+  background-color: #503bc7;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-container form button:hover {
+  background-color: #439faf;
+  transform: translateY(-3px);
+}
+
+.forgot-btn {
+  background-color: transparent !important;
+  border: none !important;
+  color: #ff6f61 !important;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.forgot-btn:hover {
+  color: #ff3b2f !important;
+}

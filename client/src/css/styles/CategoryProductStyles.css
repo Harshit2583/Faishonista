@@ -1,0 +1,76 @@
+.category {
+  padding: 20px;
+}
+
+.category .card {
+  width: 18rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category .card-img-top {
+  height: 200px;
+  /* object-fit: ; */
+}
+
+.category .card-body {
+  padding: 15px;
+}
+
+.category .card-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.category .card-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.category .card-price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.category .card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.category .btn {
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.category .btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.category .btn-info:hover {
+  background-color: #138496;
+  transform: scale(1.05);
+}
+
+.category .btn-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.category .btn-dark:hover {
+  background-color: #23272b;
+  transform: scale(1.05);
+}
