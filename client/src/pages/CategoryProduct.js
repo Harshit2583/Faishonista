@@ -1,20 +1,26 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../css/styles/CategoryProductStyles.css"; // Ensure this CSS file exists
+import { useCart } from "../context/cart";
+import toast from "react-hot-toast";
+import Layout from "../components/Layout/Layout";
+import "../css/styles/CategoryProduct.css";
+import "../css/styles/Animations.css";
 
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState({});
+  const [cart, setCart] = useCart();
 
   useEffect(() => {
-    if (params?.slug) getPrductsByCat();
+    if (params?.slug) {
+      getProductsByCat();
+    }
   }, [params?.slug]);
 
-  const getPrductsByCat = async () => {
+  const getProductsByCat = async () => {
     try {
       const { data } = await axios.get(
         `/api/v1/product/product-category/${params.slug}`
@@ -28,72 +34,69 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3 category">
-        <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
+      <div className="category-product animate-fade-in">
         <div className="row">
-          <div className="col-md-9 offset-1">
+          <div className="col-md-12">
+            <h1 className="text-center animate-slide-up">
+              Category - {category?.name}
+            </h1>
+            <h4 className="text-center animate-fade-in">
+              {products?.length} products found
+            </h4>
+          </div>
+        </div>
+        <div className="row container">
+          <div className="col-md-12">
             <div className="d-flex flex-wrap">
-              {products?.map((p) => (
-                <div className="card m-2" key={p._id}>
+              {products?.map((p, index) => (
+                <div
+                  className="card m-2 hover-lift animate-slide-up"
+                  key={p._id}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
+                    className="card-img-top hover-scale"
                     alt={p.name}
                   />
                   <div className="card-body">
                     <div className="card-name-price">
-                      <h5 className="card-title">{p.name}</h5>
-                      <h5 className="card-title card-price">
+                      <h5 className="card-title animate-fade-in">{p.name}</h5>
+                      <h5 className="card-title card-price animate-fade-in">
                         {p.price.toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
                         })}
                       </h5>
                     </div>
-                    <p className="card-text">
+                    <p className="card-text animate-fade-in">
                       {p.description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price">
                       <button
-                        className="btn btn-info ms-1"
+                        className="btn btn-info ms-1 hover-lift"
                         onClick={() => navigate(`/product/${p.slug}`)}
                       >
                         More Details
                       </button>
-                      {/* Uncomment to add to cart functionality
                       <button
-                        className="btn btn-dark ms-1"
+                        className="btn btn-dark ms-1 hover-lift"
                         onClick={() => {
-                          setCart([...cart, p]);
+                          setCart([...cart, { product: p, quantity: 1 }]);
                           localStorage.setItem(
                             "cart",
-                            JSON.stringify([...cart, p])
+                            JSON.stringify([...cart, { product: p, quantity: 1 }])
                           );
                           toast.success("Item Added to cart");
                         }}
                       >
                         ADD TO CART
-                      </button> */}
+                      </button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            {/* Uncomment for load more functionality
-            <div className="m-2 p-3">
-              {products && products.length < total && (
-                <button
-                  className="btn btn-warning"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setPage(page + 1);
-                  }}
-                >
-                  {loading ? "Loading ..." : "Loadmore"}
-                </button>
-              )}
-            </div> */}
           </div>
         </div>
       </div>
