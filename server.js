@@ -16,9 +16,11 @@ dotenv.config();
 
 //databse config
 connectDB();
+
 //esmodule fix
-const __filename=fileURLToPath(import.meta.url);
-const __dirname= path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 //rest object
 const app = express();
 
@@ -28,8 +30,10 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Serve static files from the React app
+const buildPath = path.join(__dirname, 'client', 'build');
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  console.log('Serving static files from:', buildPath);
+  app.use(express.static(buildPath));
 }
 
 //routes
@@ -41,7 +45,8 @@ app.use("/api/v1/cart", cartRoutes);
 // Handle React routing, return all requests to React app
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+    console.log('Serving index.html from:', path.join(buildPath, 'index.html'));
+    res.sendFile(path.join(buildPath, 'index.html'));
   });
 }
 
