@@ -2,7 +2,7 @@
   "name": "fashionista",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "https://faishionista-server.onrender.com",
   "dependencies": {
     "antd": "^5.24.0",
     "axios": "^1.7.9",
